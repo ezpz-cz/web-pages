@@ -1,0 +1,80 @@
+<!-- INCLUDECSS @phpbb_pages/../theme/pages_controller.css -->
+<!-- INCLUDECSS @phpbb_pages/../theme/pages_servers_controller.css -->
+
+<!-- INCLUDE overall_header.html -->
+
+<!-- INCLUDECSS @phpbb_pages/../theme/datatable/dataTables.jqueryui.css -->
+<!-- INCLUDECSS @phpbb_pages/../theme/jquery-ui/jquery-ui.css -->
+<!-- INCLUDECSS @phpbb_pages/../theme/jquery-ui/jquery-ui.structure.css -->
+<!-- INCLUDECSS @phpbb_pages/../theme/jquery-ui/jquery-ui.theme.css -->
+<!-- INCLUDECSS @phpbb_pages/../theme/datetimepicker/jquery.datetimepicker.css -->
+<!-- INCLUDECSS @phpbb_pages/../theme/fancybox/jquery.fancybox.css -->
+<!-- INCLUDECSS @phpbb_pages/../theme/qtip2/jquery.qtip.css -->
+
+<!-- INCLUDEJS scripts-generic/jquery-ui/jquery-ui.min.js -->
+<!-- INCLUDEJS scripts-generic/jquery/jquery-1.11.2.min.js -->
+<!-- INCLUDEJS scripts-generic/datatables/media/js/jquery.dataTables.min.js -->
+<!-- INCLUDEJS scripts-generic/datatables/media/js/dataTables.jqueryui.min.js -->
+<!-- INCLUDEJS scripts-generic/datetimepicker/jquery.datetimepicker.js -->
+<!-- INCLUDEJS scripts-generic/fancybox/jquery.fancybox.pack.js -->
+<!-- INCLUDEJS scripts-generic/jquery.mousewheel-3.0.6.pack.js -->
+<!-- INCLUDEJS scripts-generic/qtip2/jquery.qtip.min.js -->
+<!-- INCLUDEJS //cdn.datatables.net/plug-ins/1.10.9/sorting/time.js -->
+<!-- INCLUDEJS https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js -->
+
+<!--Datatables-->
+<link rel="stylesheet" href="//cdn.datatables.net/1.10.9/css/jquery.dataTables.min.css">
+<!-- Custom Fonts -->
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="/styles/pbtech/theme/css/bootstrap.min.css">
+
+<!-- IF S_USER_LANG eq 'cs-cz' -->
+<langinfo class="lang" value="cze" style="display: hidden;"></langinfo>
+<!-- PHP -->
+$lang ="cz";
+<!-- ENDPHP -->
+<!-- ELSE -->
+<langinfo class="lang" value="en" style="display: hidden;"></langinfo>
+<!-- PHP -->
+$lang ="en";
+<!-- ENDPHP -->
+<!-- ENDIF -->
+
+<!-- PHP -->
+include_once("ext/phpbb/pages/styles/pbtech/template/config/translation_activity.php");
+include_once("ext/phpbb/pages/styles/pbtech/template/config/config.php");
+include_once("ext/phpbb/pages/styles/pbtech/template/activity/functions/functions.php");
+$translation = getActivityTranslation($lang);
+
+<!-- ENDPHP -->
+
+
+
+<script type="text/javascript" class="init">
+
+    $(document).ready(function() {
+        $('#activityTable').DataTable({
+            columnDefs: [
+                { type: 'time-uni', targets: 2 }
+            ],
+            "order": [[ 2, "desc" ]],
+            "iDisplayLength": 15,
+            "aLengthMenu": [[15, 25, 50, -1], [15, 25, 50, "All"]],
+            bFilter: false, bInfo: false
+
+        });
+    } );
+</script>
+<div class="panel">
+    <div class="inner">
+        <!-- PHP -->
+        include("ext/phpbb/pages/styles/pbtech/template/activity/index.php");
+        <!-- ENDPHP -->
+        <!-- EVENT pages_after_page_content -->
+    </div>
+</div>
+
+<div class="modal"><!-- Place at bottom of page --></div>
+
+<!-- INCLUDE overall_footer.html -->

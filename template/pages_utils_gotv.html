@@ -1,0 +1,61 @@
+{# Use the space below to include external CSS and JS files
+# Here are some example usages:
+#
+# local files relative to this template file (when stored inside phpBB's style directories):
+# <!-- INCLUDEJS script.js -->
+# <!-- INCLUDECSS ../theme/style.css -->
+#
+# hosted on external sites:
+# <!-- INCLUDEJS http://code.jquery.com/jquery-1.11.2.min.js -->
+# <!-- INCLUDECSS https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css -->
+#
+# local files stored inside the Pages extension:
+# <!-- INCLUDEJS @phpbb_pages/script.js -->
+# <!-- INCLUDECSS @phpbb_pages/../theme/style.css -->
+#
+#}
+<!-- INCLUDECSS @phpbb_pages/../theme/utilities.css -->
+<!-- INCLUDECSS @phpbb_pages/../theme/datatable/dataTables.jqueryui.css -->
+<!-- INCLUDECSS @phpbb_pages/../theme/jquery-ui/jquery-ui.css -->
+<!-- INCLUDECSS @phpbb_pages/../theme/jquery-ui/jquery-ui.structure.css -->
+<!-- INCLUDECSS @phpbb_pages/../theme/jquery-ui/jquery-ui.theme.css -->
+<!-- INCLUDECSS @phpbb_pages/../theme/datetimepicker/jquery.datetimepicker.css -->
+<!-- INCLUDECSS @phpbb_pages/../theme/fancybox/jquery.fancybox.css -->
+<!-- INCLUDECSS @phpbb_pages/../theme/qtip2/jquery.qtip.css -->
+
+<!-- INCLUDE overall_header.html -->
+<!-- INCLUDEJS scripts-generic/jquery/jquery-1.11.3.min.js -->
+<!-- INCLUDEJS scripts-generic/jquery-ui/jquery-ui.min.js -->
+<!-- INCLUDEJS scripts-generic/datatables/media/js/jquery.dataTables.min.js -->
+<!-- INCLUDEJS scripts-generic/datatables/media/js/dataTables.jqueryui.min.js -->
+<!-- INCLUDEJS scripts-generic/datetimepicker/jquery.datetimepicker.js -->
+<!-- INCLUDEJS scripts-generic/fancybox/jquery.fancybox.pack.js -->
+<!-- INCLUDEJS scripts-generic/jquery.mousewheel-3.0.6.pack.js -->
+<!-- INCLUDEJS scripts-generic/qtip2/jquery.qtip.min.js -->
+
+<!-- INCLUDEJS scripts-generic/getJsonFromUrl.js -->
+<!-- INCLUDEJS utils-gotv/list_demos.js -->
+
+<!-- PHP -->
+    include_once("ext/phpbb/pages/styles/pbtech/template/utils-gotv/config/translation_gotv.php");
+<!-- ENDPHP -->
+
+<!-- IF S_USER_LANG eq 'cs-cz' -->
+    <langinfo class="lang" value="cze" style="display: hidden;"></langinfo>
+    <!-- PHP -->
+        $translation = getGotvTranslation("cze");
+    <!-- ENDPHP -->
+<!-- ELSE -->
+    <langinfo class="lang" value="en" style="display: hidden;"></langinfo>
+    <!-- PHP -->
+        $translation = getGotvTranslation("en");
+    <!-- ENDPHP -->
+<!-- ENDIF -->
+
+<!-- PHP -->
+    include_once("ext/phpbb/pages/styles/pbtech/template/utils-gotv/page/controls.php");
+<!-- ENDPHP -->
+
+<div class="modal"><!-- Place at bottom of page --></div>
+
+<!-- INCLUDE overall_footer.html -->

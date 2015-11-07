@@ -1,0 +1,133 @@
+{# Use the space below to include external CSS and JS files
+# Here are some example usages:
+#
+# local files relative to this template file (when stored inside phpBB's style directories):
+# <!-- INCLUDEJS script.js -->
+# <!-- INCLUDECSS ../theme/style.css -->
+#
+# hosted on external sites:
+# <!-- INCLUDEJS http://code.jquery.com/jquery-migrate-1.2.1.min.js -->
+# <!-- INCLUDECSS https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css -->
+#
+# local files stored inside the Pages extension:
+# <!-- INCLUDEJS @phpbb_pages/script.js -->
+# <!-- INCLUDECSS @phpbb_pages/../theme/style.css -->
+#
+#}
+<!-- INCLUDECSS @phpbb_pages/../theme/pages_controller.css -->
+<!-- INCLUDE overall_header.html -->
+
+<div class="panel">
+    <div class="inner">
+
+<!-- IF S_USER_LANG eq 'cs-cz' -->
+        <h2 class="pages-title">Nástroje</h2>
+<!-- ELSE -->
+        <h2 class="pages-title">{PAGE_TITLE}</h2>
+<!-- ENDIF -->
+
+        <div class="content pages-content">
+        <!-- IF S_USER_LANG eq 'cs-cz' -->
+                <p>Zde najdete všechny naše nástroje, které Vám umožní najít většinu věcí z historie na našich serverech minimálně v průběhu 7 dní zpět.</p>
+        <!-- ELSE -->
+                <p>Here you will find all utilities, that can help you find anything from history on our servers. History is saved at least for 7 days.</p>
+        <!-- ENDIF -->
+
+            <div class="forabg forum-blocks">
+                <ul class="forums">
+                    <li class="row">
+                        <dl class="icon forum_read">
+                            <dt title="SourceBans">
+                                <div class="forum-image"><a href="http://sourcebans.ezpz.cz"><img src="./../images/gamespot/sb.png"></a></div>
+                                <div class="list-inner">
+
+                                    <a href="http://sourcebans.ezpz.cz" class="forumtitle">
+                                        <!-- IF S_USER_LANG eq 'cs-cz' -->
+                                            SourceBany
+                                        <!-- ELSE -->
+                                            SourceBans
+                                        <!-- ENDIF -->
+                                    </a>
+                                    <span class="forum-description">
+                                        <!-- IF S_USER_LANG eq 'cs-cz' -->
+                                            Zde najdete bany a jejich historii.
+                                        <!-- ELSE -->
+                                            Here you will find bans and their history.
+                                        <!-- ENDIF -->
+                                    </span>
+                                </div>
+                            </dt>
+                        </dl>
+                    </li>
+                    <li class="row">
+                        <dl class="icon forum_read">
+                            <dt title="Hlstats">
+                                <div class="forum-image"><a href="http://stats.soe.cz"><img src="./../images/gamespot/hlstatsS.png"></a></div>
+                                <div class="list-inner">
+                                    <a href="http://stats.ezpz.cz" class="forumtitle">HlStats</a>
+                                    <span class="forum-description">
+                                        <!-- IF S_USER_LANG eq 'cs-cz' -->
+                                            Zde najdete statistiky a ranky.
+                                        <!-- ELSE -->
+                                            Here you will find statistics and ranks.
+                                        <!-- ENDIF -->
+                                    </span>
+                                </div>
+                            </dt>
+                        </dl>
+                    </li>
+                    <li class="row">
+                        <dl class="icon forum_read">
+                            <dt title="ConnectLog">
+                                <div class="forum-image"><a href="http://forum-new.soe.cz/page/utilities-connectlog"><img src="./../images/gamespot/cl.png"></a></div>
+                                <div class="list-inner">
+                                    <a href="http://ezpz.cz/page/utilities-connectlog" class="forumtitle">ConnectLog</a>
+                                    <span class="forum-description">
+                                        <!-- IF S_USER_LANG eq 'cs-cz' -->
+                                            Zde najdete historii připojení hráčů.
+                                        <!-- ELSE -->
+                                            Here you will find history of player connections.
+                                        <!-- ENDIF -->
+                                    </span>
+                                </div>
+                            </dt>
+                        </dl>
+                    </li>
+                    <li class="row">
+                        <dl class="icon forum_read">
+                            <dt title="GoTV">
+                                <div class="forum-image"><a href="http://forum-new.soe.cz/page/utilities-gotv"><img src="./../images/gamespot/gotv.png" class="img-rounded"></a></div>
+                                <div class="list-inner">
+                                    <a href="http://ezpz.cz/page/utilities-gotv" class="forumtitle">
+                                        <!-- IF S_USER_LANG eq 'cs-cz' -->
+                                            GoTV Dema
+                                        <!-- ELSE -->
+                                            GoTV Demos
+                                        <!-- ENDIF -->
+                                    </a>
+                                    <span class="forum-description">
+                                        <!-- IF S_USER_LANG eq 'cs-cz' -->
+                                            Zde najde dema z našich serverů za posledních 7 dnů.
+                                        <!-- ELSE -->
+                                            Here you will find demos from our servers 7 days into past.
+                                        <!-- ENDIF -->
+                                    </span>
+                                </div>
+                            </dt>
+                        </dl>
+                    </li>
+                    <!-- <li><a href="http://amxbans6.soe.cz" title=""><img alt="" src="../../../../../../images/gamespot/bans.png" /></a></li> -->
+                    <!-- <li><a href="http://teambans.soe.cz" title=""><img alt="" src="../../../../../../images/gamespot/teambans.png" /></a></li> -->
+                    <!-- <li><a href="http://chatlog.soe.cz" title=""><img alt="" src="../../../../../../images/gamespot/chatlog.png" /></a></li> -->
+                    <!-- <li><a href="http://mcbanlist.soe.cz" title=""><img alt="" src="../../../../../../images/gamespot/mcbans.png" /></a></li> -->
+                    <!-- <li><a href="http://mcstats.soe.cz" title=""><img alt="" src="../../../../../../images/gamespot/mcstat.png" /></a></li> -->
+                    <!-- <li><a href="http://mctickety.soe.cz" title=""><img alt="" src="../../../../../../images/gamespot/mctikety.png" /></a></li> -->
+                </ul>
+            </div>
+        </div>
+
+        <!-- EVENT pages_after_page_content -->
+    </div>
+</div>
+
+<!-- INCLUDE overall_footer.html -->

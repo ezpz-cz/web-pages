@@ -1,0 +1,306 @@
+{# Use the space below to include external CSS and JS files
+# Here are some example usages:
+#
+# local files relative to this template file (when stored inside phpBB's style directories):
+# <!-- INCLUDEJS script.js -->
+# <!-- INCLUDECSS ../theme/style.css -->
+#
+# hosted on external sites:
+# <!-- INCLUDEJS http://code.jquery.com/jquery-1.11.2.min.js -->
+# <!-- INCLUDECSS https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css -->
+#
+# local files stored inside the Pages extension:
+# <!-- INCLUDEJS @phpbb_pages/script.js -->
+# <!-- INCLUDECSS @phpbb_pages/../theme/style.css -->
+#
+#}
+<!-- INCLUDECSS @phpbb_pages/../theme/utilities.css -->
+<!-- INCLUDECSS @phpbb_pages/../theme/datatable/dataTables.jqueryui.css -->
+<!-- INCLUDECSS @phpbb_pages/../theme/jquery-ui/jquery-ui.css -->
+<!-- INCLUDECSS @phpbb_pages/../theme/jquery-ui/jquery-ui.structure.css -->
+<!-- INCLUDECSS @phpbb_pages/../theme/jquery-ui/jquery-ui.theme.css -->
+<!-- INCLUDECSS @phpbb_pages/../theme/datetimepicker/jquery.datetimepicker.css -->
+<!-- INCLUDECSS @phpbb_pages/../theme/fancybox/jquery.fancybox.css -->
+<!-- INCLUDECSS @phpbb_pages/../theme/qtip2/jquery.qtip.css -->
+
+<!-- INCLUDE overall_header.html -->
+<!-- INCLUDEJS scripts-generic/jquery/jquery-2.1.3.min.js -->
+<!-- INCLUDEJS scripts-generic/jquery-ui/jquery-ui.min.js -->
+<!-- INCLUDEJS scripts-generic/datatables/media/js/jquery.dataTables.min.js -->
+<!-- INCLUDEJS scripts-generic/datatables/media/js/dataTables.jqueryui.min.js -->
+<!-- INCLUDEJS scripts-generic/datetimepicker/jquery.datetimepicker.js -->
+<!-- INCLUDEJS scripts-generic/fancybox/jquery.fancybox.pack.js -->
+<!-- INCLUDEJS scripts-generic/jquery.mousewheel-3.0.6.pack.js -->
+<!-- INCLUDEJS scripts-generic/qtip2/jquery.qtip.min.js -->
+
+<!-- INCLUDEJS scripts-generic/getJsonFromUrl.js -->
+<!-- INCLUDEJS utils-connectlog/list_connectlog.js -->
+
+<!-- PHP -->
+    include("ext/phpbb/pages/styles/pbtech/template/scripts-generic/servers.php");
+    include("ext/phpbb/pages/styles/pbtech/template/scripts-generic/checkAdmin.php");
+    session_start();
+    global $user;
+    $username = $user->data['username'];
+    $_SESSION['ezpz_username'] = $username;
+
+    if (checkAdminByUsername($username))
+    {
+        $_SESSION['ezpz_sb_admin_id'] = getAdminIdByUsername($username);
+        $_SESSION['ezpz_sb_admin'] = "1";
+    }
+    else
+    {
+        $_SESSION['ezpz_sb_admin'] = "0";
+    }
+<!-- ENDPHP -->
+
+<script>
+    $(document).ready(function () {
+
+        function loadTable()
+        {
+            //$("#div-table").empty();
+            $("#div-table").html("<div id='div-loader'><img src='http://ezpz.cz/ext/phpbb/pages/styles/pbtech/theme/gears.gif' alt='Loading...' style='display: block; margin-left: auto; margin-right: auto;' /></div>");
+
+            /*$("#div-table").slideUp("slow", function() {
+                $("#div-table").empty();
+                $("#div-loader").slideDown();
+            });*/
+
+            $("#div-table").load("http://ezpz.cz/ext/phpbb/pages/styles/pbtech/template/utils-connectlog/list_connectlog.php?serverid=" +
+                    encodeURIComponent($("#select-server").find(":selected").attr("serverid")) +
+                    "&lang=" + encodeURIComponent($(".lang").attr("value")) +
+                    "&nickname=" + encodeURIComponent($("#input-nickname").val()) +
+                    "&steamid=" + encodeURIComponent($("#input-steamid").val()) +
+                    "&ip=" + encodeURIComponent($("#input-ip").val()),
+                    function() {
+                        $('#table-connectlog').DataTable({
+                            "order": [[ 0, 'desc' ]]
+                        });
+                        $("#div-loader").slideUp();
+                        $("#div-table").slideDown("slow");
+                    });
+
+            showUrl();
+        }
+
+        function showUrl()
+        {
+            var url = "http://ezpz.cz/page/utilities-connectlog?";
+
+            if ($("#input-nickname").val() != "")
+            {
+                url += "nickname=" + encodeURIComponent($("#input-nickname").val()) + "&";
+            }
+
+            if ($("#input-steamid").val() != "")
+            {
+                url += "steamid=" + encodeURIComponent($("#input-steamid").val()) + "&";
+            }
+
+            if ($("#input-ip").val() != "")
+            {
+                url += "ip=" + encodeURIComponent($("#input-ip").val());
+            }
+
+            $("#input-url").val(url);
+        }
+
+        $("#button-search").click(function(e)
+        {
+            loadTable();
+            //loadTable();
+
+            e.preventDefault();
+        });
+
+        $("#button-copy").click(function(e)
+        {
+            e.preventDefault();
+        });
+
+        var args = getJsonFromUrl();
+
+        var nickname = args["nickname"];
+        var steamid = args["steamid"];
+        var ip = args["ip"];
+
+        if (typeof nickname !== 'undefined')
+        {
+            $("#input-nickname").val(nickname);
+
+        }
+
+        if (typeof steamid !== 'undefined')
+        {
+            $("#input-steamid").val(steamid);
+        }
+
+        if (typeof ip !== 'undefined')
+        {
+            $("#input-ip").val(ip);
+        }
+
+        if (typeof nickname !== 'undefined' | typeof steamid !== 'undefined' | typeof ip !== 'undefined')
+        {
+            loadTable();
+            //loadTable();
+        }
+
+        $("#div-table").on("click", ".ban", function(e)
+        {
+            $(".ban").fancybox(
+                    {
+                        "overlayColor": "#000",  // here you set the background black
+                        "overlayOpacity": 1,  // here you set the transparency of background: 1 = opaque
+                        "hideOnOverlayClick": true,  // if true, closes fancybox when clicking OUTSIDE the box
+                        "hideOnContentClick": true, // if true, closes fancybox when clicking INSIDE the box
+                        "type": "iframe", // the type of content : iframe for external pages
+                        //"width": 640, // if type=iframe is always smart to set dimensions
+                        //"height": 700,
+                        'scrolling': 'no',
+                        'titleShow': false,
+                        'autoscale': false,
+                        'autoDimensions': false
+                    });
+        });
+
+        $("#div-table").on("mouseover", ".nickname", function(e) {
+            var that = this;
+            console.log($(that).attr('playerid'));
+
+            $(that).qtip({
+                content: {
+                    //text: "Loading...",
+                    ajax: {
+                        url: "http://ezpz.cz/ext/phpbb/pages/styles/pbtech/template/scripts-generic/getNicknameChanges.php?playerid=" + $(that).attr('playerid'),
+                        type: "get",
+                        dataType: "html"
+                    }
+                },
+                show: {
+                    ready: true
+                },
+                style: {
+                    classes: 'qtip-tipped qtip-shadow',
+                    tip: {
+                        width: 100
+                    }
+                },
+                hide: {
+                    fixed: true,
+                    delay: 300
+                },
+                position: {
+                    my: 'top center',
+                    at: 'bottom center',
+                    target: $(that),
+                    adjust: {
+                        y: 10
+                    }
+                }
+            });
+        });
+
+        //loadTable();
+    });
+
+</script>
+
+<div class="panel">
+    <div class="inner">
+
+        <!-- IF S_USER_LANG eq 'cs-cz' -->
+            <h2 class="pages-title">ConnectLog</h2>
+        <!-- ELSE -->
+            <h2 class="pages-title">{PAGE_TITLE}</h2>
+        <!-- ENDIF -->
+
+        <div id="div-info">
+            <!-- IF S_USER_LANG eq 'cs-cz' -->
+                Pro zobrazení všech posledních záznamů stiskněte tlačítko Hledat. Pro zobrazení konkrétních hráčů vyplňte pole a stiskněte tlačítko Hledat.
+            <!-- ELSE -->
+                To show all last records click the button Search. To show specific players fill in field(s) and click the button Search.
+            <!-- ENDIF -->
+        </div>
+
+        <br />
+
+        <div id="page-content" class="content pages-content">
+            <div class="input-container">
+                <label for="select-server">Server:</label>
+                <select id="select-server" name="select-server" onchange="loadTable()">
+                    <!-- IF S_USER_LANG eq 'cs-cz' -->
+                        <option class="option-server" serverid="-1">VŠECHNY</option>
+                    <!-- ELSE -->
+                        <option class="option-server" serverid="-1">ALL</option>
+                    <!-- ENDIF -->
+                    <!-- PHP -->
+                        foreach (GetServers() as $id => $row){ echo '<option class="option-server" serverid='.$row["server_id"].'>'.$row["name"].'</option>'; }
+                    <!-- ENDPHP -->
+                </select>
+            </div>
+
+            <div class="input-container">
+                <label for="input-nickname">Nickname:</label>
+                <input type="search" class="input-text" id="input-nickname" name="input-nickname" onchange="loadTable()"/>
+            </div>
+
+            <div class="input-container">
+                <label for="input-steamid">SteamID:</label>
+                <input type="text" class="input-text" id="input-steamid" name="input-steamid" onchange="loadTable()"/>
+            </div>
+            
+            <div class="input-container">
+                <label for="input-ip">IP:</label>
+                <input type="text" class="input-text" id="input-ip" name="input-ip" onchange="loadTable()"/>
+            </div>
+            
+            <!-- IF 0 -->
+            <div class="input">
+                <label for="input-datefrom">
+                <!-- IF S_USER_LANG eq 'cs-cz' --> Datum od: <!-- ELSE --> Date from: <!-- ENDIF -->
+                </label>
+                <input type="text" class="input-date" id="input-datefrom" name="input-datefrom" />
+            </div>
+            
+            <div class="input">
+                <label for="input-datetill">
+                <!-- IF S_USER_LANG eq 'cs-cz' --> Datum do: <!-- ELSE --> Date till: <!-- ENDIF -->
+                </label>
+                <input type="text" class="input-date" id="input-datetill" name="input-datetill" />
+            </div>
+            <!-- ENDIF -->
+            
+            <div class="input-container">
+                <button type="text" id="button-search" class="button-search">
+                    <!-- IF S_USER_LANG eq 'cs-cz' --> HLEDAT <!-- ELSE --> SEARCH <!-- ENDIF -->
+                </button>
+
+                <br />
+
+                <label for="input-url">
+                    <!-- IF S_USER_LANG eq 'cs-cz' --> Link na tento filtr <!-- ELSE --> Link for this filter <!-- ENDIF -->
+                </label>
+                <input id="input-url" type="text" readonly="readonly" style='width:90%;' onmouseover="this.select()" />
+            </div>
+
+            <div id="div-loader" style="display: none;">
+                <img src="http://ezpz.cz/ext/phpbb/pages/styles/pbtech/theme/gears.gif" alt="Loading..." style="display: block; margin-left: auto; margin-right: auto;" />
+            </div>
+            
+            <div id="div-table"></div>
+
+            <!-- IF S_USER_LANG eq 'cs-cz' -->
+                <langinfo class="lang" value="cz" style="display: hidden;"></langinfo>
+            <!-- ELSE -->
+                <langinfo class="lang" value="en" style="display: hidden;"></langinfo>
+            <!-- ENDIF -->
+        </div>
+
+        <!-- EVENT pages_after_page_content -->
+    </div>
+</div>
+<div class="modal"><!-- Place at bottom of page --></div>
+<!-- INCLUDE overall_footer.html -->

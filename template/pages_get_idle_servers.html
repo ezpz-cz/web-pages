@@ -1,0 +1,22 @@
+<!-- INCLUDEPHP SourceQuery.class.php -->
+
+<!-- IF S_USER_LANG eq 'cs-cz' -->
+    <!-- PHP -->
+        $lang ="cz";
+    <!-- ENDPHP -->
+<!-- ELSE -->
+    <!-- PHP -->
+        $lang ="en";
+    <!-- ENDPHP -->
+<!-- ENDIF -->
+
+<!-- PHP -->
+    include("ext/phpbb/pages/styles/pbtech/template/config/translation_servers.php");
+    include("ext/phpbb/pages/styles/pbtech/template/config/config.php");
+    include_once("ext/phpbb/pages/styles/pbtech/template/servers/functions/functions.php");
+
+    $translation = getServersTranslation($lang);
+<!-- ENDPHP -->
+<!-- PHP -->
+    include("ext/phpbb/pages/styles/pbtech/template/servers/getServerInfo.php");
+<!-- ENDPHP -->

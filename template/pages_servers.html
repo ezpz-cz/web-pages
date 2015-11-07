@@ -1,0 +1,92 @@
+<!-- INCLUDECSS @phpbb_pages/../theme/pages_controller.css -->
+<!-- INCLUDECSS @phpbb_pages/../theme/pages_servers_controller.css -->
+<!-- INCLUDE overall_header.html -->
+
+<!-- INCLUDEPHP SourceQuery.class.php -->
+
+<!-- IF S_USER_LANG eq 'cs-cz' -->
+    <langinfo class="lang" value="cze" style="display: hidden;"></langinfo>
+    <!-- PHP -->
+        $lang ="cz";
+    <!-- ENDPHP -->
+<!-- ELSE -->
+    <langinfo class="lang" value="en" style="display: hidden;"></langinfo>
+    <!-- PHP -->
+        $lang ="en";
+    <!-- ENDPHP -->
+<!-- ENDIF -->
+
+<!-- PHP -->
+    include("ext/phpbb/pages/styles/pbtech/template/config/translation_servers.php");
+    include("ext/phpbb/pages/styles/pbtech/template/config/config.php");
+    include_once("ext/phpbb/pages/styles/pbtech/template/servers/functions/functions.php");
+
+    $translation = getServersTranslation($lang);
+<!-- ENDPHP -->
+<script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+<script>
+    $( document ).ready(function() {
+        $(".section").hide();
+//        $(".server").click(function() {
+//            $("#server-section-"+$(this).attr("data-key")).toggle(200);
+//            $(".section").not("#server-section-"+$(this).attr("data-key")).hide();
+//        });
+//        $(".server").on('click', function() {
+//            $("#server-section-"+$(this).attr("data-key")).toggle(200);
+//            $(".section").not("#server-section-"+$(this).attr("data-key")).hide();
+//        });
+        $("tbody").on('click','.server', function() {
+            $("#server-section-"+$(this).attr("data-key")).toggle(200);
+            $(".section").not("#server-section-"+$(this).attr("data-key")).hide();
+        });
+
+        $.ajax({
+            url: 'http://ezpz.cz/domains/ezpz.cz/page/getIdleServersInfo',
+            dataType: 'json',
+            cache: true,
+            success: function(data) {
+                $("#idle").html(data);
+                $(".section").hide();
+                $("#div-loader").hide();
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+//                alert(xhr.status +" "+ thrownError);
+                $("#idle").html(xhr.status +" "+ thrownError)
+            }
+        });
+    });
+</script>
+
+
+<div class="panel">
+    <div class="inner">
+
+        <h2 class="pages-title">
+        <!-- PHP -->
+            echo $translation["page"]["servers"];
+        <!-- ENDPHP -->
+        </h2>
+
+        <div class="content pages-content">
+            <!-- PHP -->
+            echo $translation["page"]["servers_text"];
+            <!-- ENDPHP -->
+        </div>
+        <br /><br />
+
+        <div id="page-content" class="content pages-content">
+            <h2>
+            <!-- PHP -->
+            echo $translation["page"]["actual_status"];
+            <!-- ENDPHP -->
+            </h2>
+            <!-- PHP -->
+                include("ext/phpbb/pages/styles/pbtech/template/servers/detailServer.php");
+            <!-- ENDPHP -->
+        </div>
+
+        <!-- EVENT pages_after_page_content -->
+    </div>
+</div>
+<div class="modal"><!-- Place at bottom of page --></div>
+<!-- INCLUDE overall_footer.html -->
