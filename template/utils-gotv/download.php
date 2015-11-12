@@ -8,8 +8,8 @@ if(!isset($_GET["file"]))
     die("ERROR: No file specified!");
 
 try {
-    //$pattern = "/auto-(\d{8}-\d{6})-[^-]*-([^-]+)-.*\.dem/i";
-    $pattern = "auto-\d{8}-\d{6}--.+-\.(dem\.zip|dem)/i";
+    $pattern = "/auto-(\d{8}-\d{6})-[^-]*-([^-]+)-.*\.dem/i";
+    //$pattern = "auto-\d{8}-\d{6}--.+-\.(dem\.zip|dem)/i";
     if (!preg_match($pattern, $_GET['file']))
         throw new Exception("ERROR: Wrong demo format!");
 
