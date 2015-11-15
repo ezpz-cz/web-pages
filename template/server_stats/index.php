@@ -170,7 +170,7 @@
             getServersGraphTogether('#container', 'Návštěvnost serverů EzPz dohromady', 'areaspline', ids, names, from, to);
 
 
-            ids = [15, 12, 3, 11, 6, 14, 10, 16];
+            ids = [17, 12, 3, 11, 6, 14, 10, 16];
             names = ['EzPz.cz | Dust2 ONLY #2 [128tick,drops,HLstats]', 'EzPz.cz | ARENA 1vs1 [128tick,drops,HLstats,fastdl]', 'EzPz.cz | Classic #1 [128tick,drops,HLstats]', 'EzPz.cz | Dust2 ONLY #1 [128tick,drops,HLstats]',
                 'EzPz.cz | Classic #2 [128tick,drops,HLstats]', 'EzPz.cz | AWP [128tick,drops,HLstats,fastdl]', 'EzPz.cz | AIM+AWP #1 [128tick,drops,HLstats,fastdl]', 'EzPz.cz | AIM+AWP #2 [128tick,drops,HLstats,fastdl]'
             ];

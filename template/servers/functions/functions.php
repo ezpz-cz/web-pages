@@ -159,6 +159,9 @@ function getServerStats($host, $port, $login, $pass, $name, $from, $to, $serveri
 
         $sql = "SELECT COUNT(id) as pocet, DATE(eventTime) as eventTime FROM `hlstats_Events_Entries` as e
             WHERE  serverId LIKE " . $serverid ;
+	if( $serverid === '17'){
+	    $sql .= " OR serverId LIKE 15";
+	}
         if ($from !== '' AND $from !== NULL) {
             $sql .= " AND eventTime >= '" . $from . "'";
         }
