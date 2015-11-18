@@ -8,7 +8,7 @@
     }
 
     .pure-g h3 {
-        color: red !important;
+        color: #074e79 !important;
         font-size: 150% !important;
         font-weight: bold !important;
         margin: 1em 0 !important;
@@ -22,7 +22,7 @@
         text-align: -webkit-match-parent !important;
     }
     .pure-g a {
-        color: red !important;
+        color: #074e79 !important;
         font-weight: bold !important;
     }
     .pure-g{
