@@ -26,7 +26,7 @@ function getTranslation($lang)
                     <img class=\"pure-img\" src=\"http://i.imgur.com/hWadWfY.png\" alt=\"soutez\">
                 </a>
             </div>
-            <div class=\"pure-g\">
+            <div>
                 <div class=\"pure-u-1 pure-u-md-1-2 pure-u-lg-1-4\">
                     <div class=\"l-box\">
                         <p>
@@ -92,7 +92,7 @@ function getTranslation($lang)
                     <img class=\"pure-img\" src=\"http://i.imgur.com/5hsqH52.png\" alt=\"soutez\">
                 </a>
             </div>
-            <div class=\"pure-g\">
+            <div>
                 <div class=\"pure-u-1 pure-u-md-1-2 pure-u-lg-1-4\">
                     <div class=\"l-box\">
                         <p>
