@@ -26,18 +26,14 @@ function getTranslation($lang)
     <ul>
         <li><strong>výkonný hardware</strong> – je tak zajištěna naprostá plynulost hry</li>
         <li><strong>128tick</strong> – komunikace mezi hráči a serverem je u nás (narozdíl od Valve serverů) 2x
-            rychlejší,
-            což zajišťuje přesné hitboxy a celkově lepší požitek ze hry (128tick používají i profesionální servery v
-            ligách
-            FaceIt nebo ESEA)
+            rychlejší, což zajišťuje přesné hitboxy a celkově lepší požitek ze hry (128tick používají i profesionální servery v
+            ligách FaceIt nebo ESEA)
         </li>
-        <li><strong>skiny zbraní</strong> – pomocí příkazu !ws si u nás můžete na jakoukoliv zbraň nastavit libovolný
-            skin
-            (dokonce se to vztahuje i na bombu :)
+        <li><strong>skiny zbraní</strong> – pomocí příkazu <i>!ws</i> si u nás můžete na jakoukoliv zbraň nastavit libovolný
+            skin (dokonce se to vztahuje i na bombu :)
         </li>
-        <li><strong>nože</strong> – pomocí příkazu !knife si lze nastavit jakýkoliv nůž (a klidně ho dále oskinovat
-            pomocí
-            !ws)
+        <li><strong>nože</strong> – pomocí příkazu <i>!knife</i> si lze nastavit jakýkoliv nůž (a klidně ho dále oskinovat
+            pomocí <i>!ws</i>)
         </li>
         <li><strong><a href=\"http://stats.ezpz.cz/\">HLStats</a></strong> – detailní statistiky (nejen) hráčů</li>
         <li><strong><a href=\"http://ezpz.cz/page/report-system\">Report System</a></strong> – náš vlastnoručně vytvořený
@@ -114,49 +110,48 @@ function getTranslation($lang)
             "content" => "<p>
         Gaming portal <a href=\"http://ezpz.cz/\">EzPz.cz</a> was created after the breakup of the portal SOE.cz.
         The two main admins, Meverik and Ushirew, then decided to create a new gaming portal. And so there has been
-        a founding <a href=\"http://ezpz.cz/\"> EzPz.cz </a>, where he moved almost the entire admin team SOE.cz.
+        a founding <a href=\"http://ezpz.cz/\">EzPz.cz</a>, where moved almost the entire admin team of SOE.cz.
     </p>
 
     <p>
-        Our main activity is the operation of <a href=\"http://ezpz.cz/page/servers\">high quality servers</a> for game
-        Counter-Strike: Global Offensive. Furthermore, at <a href=\"ts3server://ts.ezpz.cz\">ts.ezpz.cz</a> we offer
-        public TeamSpeak3 server ( if you are interested in a permanent room, <a href = \"http: // ezpz.cz/viewtopic.php?f=10&t=20\">contact us</a> )
+        Our main activity is the operation of <a href=\"http://ezpz.cz/page/servers\">high quality servers</a> for the game
+        Counter-Strike: Global Offensive. Furthermore, at <a href=\"ts3server://ts.ezpz.cz\">ts.ezpz.cz</a> we offer a
+        public TeamSpeak3 server (if you want a permanent room there, <a href='http://ezpz.cz/viewtopic.php?f=10&t=20\'>contact us</a>)
     </p>
 
     <p>
-        <strong>Among the advantages of our CS:GO servers primarily include:</strong>
+        <strong>Among the advantages of our CS:GO servers is primarily included:</strong>
 
     <ul>
-        <li><strong>powerful hardware</strong> – it is to ensure full continuity of play</li>
-        <li><strong>128tick</strong> – communication between the players and the ours server (unlike Valve servers) are
-        2 times faster, which ensures accurate hitboxes an overall better enjoyment of the game (128tick used in servers
-        and professional leagues like FaceIT or ESEA)
+        <li><strong>powerful hardware</strong> – to ensure a smooth, lag-free gaming experience</li>
+        <li><strong>128tick</strong> – communication between the players and our servers (unlike the Valve servers) is
+        two times faster, which ensures accurate hitboxes and overall better enjoyment of the game (128tick is also used on servers
+        of professional leagues like FaceIT or ESEA)
         </li>
-        <li><strong>skins of weapons</strong> – on our servers you can set up any skin on weapon using command !ws.
-        Even you can chage skin of bomb :)
+        <li><strong>skins of weapons</strong> – on our servers you can set any skin on weapon using the command <i>!ws</i> - even you can change the skin of bomb :)
         </li>
-        <li><strong>knifes</strong> – using the command !knife can set any knife (and it still change skin of knife using !ws)
+        <li><strong>knifes</strong> – using the command <i>!knife</i> can set any knife (and later can be its sking changed using <i>!ws</i>)
         </li>
-        <li><strong><a href=\"http://stats.ezpz.cz/\">HLStats</a></strong> – detailed statistics (not only) players</li>
+        <li><strong><a href=\"http://stats.ezpz.cz/\">HLStats</a></strong> – detailed statistics of (and not only) players</li>
         <li><strong><a href=\"http://ezpz.cz/page/report-system\">Report System</a></strong> – Our self-created system
-        through which players can player to report violators. These reports will appear on the
-        <a href=\"http://ezpz.cz/page/report-system\">Report System</a> are handled by our admins.
+        through which players can report other players violating the rules. These reports appear at
+        <a href=\"http://ezpz.cz/page/report-system\">Report System page</a> and are handled by our admins.
         </li>
     </ul>
     </p>
 
     <p>
-        Our priority is the satisfaction of players who are on servers not often disrupted by cheaters and rude players.
-        Game admins work very easier these mostly self-created tools with which data can be traced back about players:
+        Our priority is also the satisfaction of players – unfortunately there will always be some cheaters and rude players, but our admins
+        can utilize our mostly self-created tools which provides the past tracking of data about players and simplify their job:
     <ul>
-        <li><strong><a href=\"http://ezpz.cz/page/utilities-connectlog\">Connect Log</a></strong> – a listing of all connects and disconnects of players on our servers
+        <li><strong><a href=\"http://ezpz.cz/page/utilities-connectlog\">Connect Log</a></strong> – a listing of all connections and disconnections of players on our servers
         </li>
         <li><strong><a href=\"http://ezpz.cz/page/utilities-chatlog\">Chat Log</a></strong> – chat listing on our servers
         </li>
-        <li><strong><a href=\"http://ezpz.cz/page/utils-gotv\">GOTV demos</a></strong> – download all demos up to 2 weeks in the past
+        <li><strong><a href=\"http://ezpz.cz/page/utils-gotv\">GOTV demos</a></strong> – downloading of all demos up to 2 weeks in the past
         </li>
         <li><strong><a href=\"http://ezpz.cz/page/report-system\">Report System</a></strong></li>
-        <li><strong><a href=\"http://sourcebans.ezpz.cz/\">SourceBans</a></strong> – management of bans</li>
+        <li><strong><a href=\"http://sourcebans.ezpz.cz/\">SourceBans</a></strong> – powerful management of bans</li>
     </ul>
     </p>
 
@@ -166,20 +161,20 @@ function getTranslation($lang)
     </p>
 
     <p>
-        If it continues to take an interest of players on our servers so in the future certainly open new ones in order
-        to meet the widest possible group of players - whether they are players who play take seriously or players who
+        If the interest of players in our servers will continue, we certainly open the new ones in order
+        to satisfy the needs of the widest possible group of players - whether they are players who take the game seriously or players who
         just want to relax and enjoy a lot of fun.
     </p>
 
     <p>
-        Thank you for your interest and support. we are very glad to see you on our servers, or even our forums and
-        <a href=\"https://www.facebook.com/ezpz.cz.sk.en/\">Facebook</a>. If you like our servers and would like to join to our team  <a href=\"http://ezpz.cz/viewtopic.php?f=43&t=218\">Recruiting CS:GO admins – minimal requirements</a> and then possibly apply now. We welcome new friends reinforcements :)
+        Thank you for your interest and support. We are very glad to see you on our servers or even our forums and
+        <a href=\"https://www.facebook.com/ezpz.cz.sk.en/\">Facebook</a>. If you like our servers and would like to join our team, see
+        <a href=\"http://ezpz.cz/viewtopic.php?f=43&t=218\">Recruiting CS:GO admins – minimal requirements</a> and then submit your application. We gladly welcome any new friendly staff :)
     </p>
 
     <p>
-        If you are interested in cooperation with our portal (eg. Sponsorship, advertising) please contact us via e-mail
-        <img src=\"http://ezpz.cz/images/admin@ezpz.cz.png\" alt=\"admin ezpz.cz\" title=\"admin ezpz.cz\"/>, possibly
-            here in the forum through private messages.
+        If you are interested in cooperation with our portal (eg. sponsorship, advertising) please contact us via e-mail
+        <img src=\"http://ezpz.cz/images/admin@ezpz.cz.png\" alt=\"admin ezpz.cz\" title=\"admin ezpz.cz\"/> or here at forum through the private message.
     </p>
 
 
