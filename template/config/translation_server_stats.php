@@ -10,7 +10,7 @@ function getServerStatsTranslation($lang)
         ),
 
         "page" => array(
-            "activity" => "Aktivita adminov",
+            "activity" => "Návštěvnost serverů EzPz.cz",
             "from" => "Datum od",
             "to"  => "Datum do",
             "button_search" => "Hledat",
@@ -26,7 +26,7 @@ function getServerStatsTranslation($lang)
         ),
 
         "page" => array(
-            "activity" => "Activity of admins",
+            "activity" => "Traffic on the servers EzPz.cz",
             "from" => "Date from",
             "to"  => "Date to",
             "button_search" => "Search",
