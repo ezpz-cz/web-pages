@@ -36,7 +36,7 @@
         $by_ip = $_GET['ip'];
         $by_msg = $_GET['msg'];
 
-        if ($by_nickname == "" AND $by_steamid == "" AND $by_ip == "")
+        if ($by_nickname == "" AND $by_steamid == "" AND $by_ip == "" AND $by_msg == "")
         {
             $no_filter = True;
         }
@@ -61,25 +61,25 @@
             $parameters[":server_id"] = intval($server["hlstats_id"]);
         }
 
-        if($by_nickname !="")
+        if($by_nickname != "")
         {
             $conditions[] = " players.lastName LIKE :nickname";
             $parameters[":nickname"] = "%$by_nickname%";
         }
 
-        if($by_steamid !="")
+        if($by_steamid != "")
         {
             $conditions[] = " ids.uniqueId = :steamid";
             $parameters[":steamid"] = $by_steamid;
         }
 
-        if($by_ip !="")
+        if($by_ip != "")
         {
             $conditions[] = " players.lastAddress = :ip";
             $parameters[":ip"] = $by_ip;
         }
 
-        if($by_msg !="")
+        if($by_msg != "")
         {
             $conditions[] = " chat.message LIKE :msg";
             $parameters[":msg"] = "%$by_msg%";
