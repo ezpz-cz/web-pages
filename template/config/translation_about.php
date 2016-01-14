@@ -109,8 +109,8 @@ function getTranslation($lang)
             "about" => "About us",
             "content" => "<p>
         Gaming portal <a href=\"http://ezpz.cz/\">EzPz.cz</a> was created after the breakup of the portal SOE.cz.
-        The two main admins, Meverik and Ushirew, then decided to create a new gaming portal. And so there has been
-        a founding <a href=\"http://ezpz.cz/\">EzPz.cz</a>, where moved almost the entire admin team of SOE.cz.
+        The two main admins, Meverik and Ushirew, then decided to create a new gaming portal.  And that is how
+        <a href=\"http://ezpz.cz/\">EzPz.cz</a> was founded, where almost the entire admin team of SOE.cz was moved.
     </p>
 
     <p>
@@ -120,7 +120,7 @@ function getTranslation($lang)
     </p>
 
     <p>
-        <strong>Among the advantages of our CS:GO servers is primarily included:</strong>
+        <strong>The main advantages of our CS:GO servers are:</strong>
 
     <ul>
         <li><strong>powerful hardware</strong> – to ensure a smooth, lag-free gaming experience</li>
@@ -128,11 +128,11 @@ function getTranslation($lang)
         two times faster, which ensures accurate hitboxes and overall better enjoyment of the game (128tick is also used on servers
         of professional leagues like FaceIT or ESEA)
         </li>
-        <li><strong>skins of weapons</strong> – on our servers you can set any skin on weapon using the command <i>!ws</i> - even you can change the skin of bomb :)
+        <li><strong>skins of weapons</strong> – on our servers you can set any skin on weapon using the command <i>!ws</i> - you can even change the skin of bomb :)
         </li>
-        <li><strong>knifes</strong> – using the command <i>!knife</i> can set any knife (and later can be its sking changed using <i>!ws</i>)
+        <li><strong>knifes</strong> – using the command <i>!knife</i> you can set any knife (and later its skin can be changed using <i>!ws</i>)
         </li>
-        <li><strong><a href=\"http://stats.ezpz.cz/\">HLStats</a></strong> – detailed statistics of (and not only) players</li>
+        <li><strong><a href=\"http://stats.ezpz.cz/\">HLStats</a></strong> – detailed statistics of (not only) the players</li>
         <li><strong><a href=\"http://ezpz.cz/page/report-system\">Report System</a></strong> – Our self-created system
         through which players can report other players violating the rules. These reports appear at
         <a href=\"http://ezpz.cz/page/report-system\">Report System page</a> and are handled by our admins.
@@ -141,8 +141,9 @@ function getTranslation($lang)
     </p>
 
     <p>
-        Our priority is also the satisfaction of players – unfortunately there will always be some cheaters and rude players, but our admins
-        can utilize our mostly self-created tools which provides the past tracking of data about players and simplify their job:
+        Our priority is also the satisfaction of players – unfortunately there will always be some cheaters and rude players,
+        but our admins can use our mostly self-created tools which provide the tracking of past data about players and simplify their job:
+
     <ul>
         <li><strong><a href=\"http://ezpz.cz/page/utilities-connectlog\">Connect Log</a></strong> – a listing of all connections and disconnections of players on our servers
         </li>

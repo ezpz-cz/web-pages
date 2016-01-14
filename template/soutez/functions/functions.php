@@ -7,20 +7,30 @@ function getKills($host, $port, $login, $pass, $name, $from, $to)
     $conn = new PDO("mysql:host=$host;port=$port;dbname=$name", $login, $pass, $options);
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-    $sql = "SELECT SUM(s.kills) as kills, p.lastName, flag, country FROM `soe-hlstats`.`hlstats_Events_Statsme` as s
-                INNER JOIN hlstats_Players as p ON p.playerId = s.playerId
-                where (weapon like 'ak47' OR weapon like 'm4a1')
-                   AND (s.serverId = 3 OR serverId = 6)
+//    $sql = "SELECT SUM(s.kills) as kills, p.lastName, flag, country FROM `soe-hlstats`.`hlstats_Events_Statsme` as s
+//                INNER JOIN hlstats_Players as p ON p.playerId = s.playerId
+//                where (weapon like 'ak47' OR weapon like 'm4a1')
+//                   AND (s.serverId = 3 OR serverId = 6)
+//
+//                ";
+ $sql = "SELECT COUNT(id) as kills, lastName, flag, country, playerId FROM `hlstats_Events_Frags` as s
+INNER JOIN hlstats_Players as p ON p.playerId = s.killerId
+where `weapon` IN ('m4a1%', 'ak47')
+AND serverId IN (3, 6)";
 
-                ";
     if ($from !== '' AND $from !== NULL) {
         $sql .= "AND s.eventTime >= '" . $from . "'";
     }
     if ($to !== '' AND $to !== NULL) {
         $sql .= "AND s.eventTime <= '" . $to . "'";
     }
-    $sql .= " GROUP by s.playerId
-                ORDER BY `kills` DESC";
+
+    $sql .= " GROUP BY killerId
+ORDER BY `kills` DESC";
+//    $sql .= " GROUP by s.playerId
+//                ORDER BY `kills` DESC";
+
+
 
     $stmt = $conn->prepare($sql);
     $stmt->execute();

@@ -158,15 +158,16 @@ function getServerStats($host, $port, $login, $pass, $name, $from, $to, $serveri
         $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
         $sql = "SELECT COUNT(id) as pocet, DATE(eventTime) as eventTime FROM `hlstats_Events_Entries` as e
-            WHERE  serverId LIKE " . $serverid ;
-	if( $serverid === '17'){
-	    $sql .= " OR serverId LIKE 15";
-	}
+            WHERE  ( serverId LIKE " . $serverid ;
+        if( $serverid === '17'){
+            $sql .= " OR serverId LIKE 15";
+        }
+        $sql .= ")";
         if ($from !== '' AND $from !== NULL) {
             $sql .= " AND eventTime >= '" . $from . "'";
         }
         if ($to !== '' AND $to !== NULL) {
-            $sql .= " AND eventTime <= '" . $to . "'";
+            $sql .= " AND eventTime <= '" . $to . " 23:59:59'";
         }
         $sql .= " GROUP By DATE(eventTime)";
         $stmt = $conn->prepare($sql);
@@ -203,7 +204,7 @@ WHERE game LIKE 'csgo' ";
     $stmt->setFetchMode(PDO::FETCH_ASSOC);
 
     foreach ($stmt->fetchAll() as $rec) {
-        $results[] = array(strtotime($rec['eventTime']) * 1000,intval($rec['pocet']));
+        $results[] = array(strtotime($rec['eventTime'])*1000 ,intval($rec['pocet']));
     };
     return $results;
 
@@ -223,7 +224,7 @@ function getServerStatsNotUnique($host, $port, $login, $pass, $name, $from, $to)
         $sql .= "AND eventTime >= '" . $from . "'";
     }
     if ($to !== '' AND $to !== NULL) {
-        $sql .= "AND eventTime <= '" . $to . "'";
+        $sql .= "AND eventTime <= '" . $to . " 23:59:59'";
     }
     $sql .= " GROUP By DATE(eventTime)";
     $stmt = $conn->prepare($sql);

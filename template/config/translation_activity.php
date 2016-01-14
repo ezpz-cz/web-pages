@@ -7,6 +7,9 @@ function getActivityTranslation($lang)
             "nick" => "Meno",
             "interval" => "Od-Do",
             "played" => "Nahraný čas",
+            "sum" => "Reportů Spolu",
+            "solved" => "Vyřešených",
+            "unsolved" => "Nevyřešených",
         ),
 
         "page" => array(
@@ -23,6 +26,9 @@ function getActivityTranslation($lang)
             "nick" => "Nick",
             "interval" => "From-To",
             "played" => "Played time",
+            "sum" => "Total reports",
+            "solved" => "Solved",
+            "unsolved" => "Unsolved",
         ),
 
         "page" => array(
