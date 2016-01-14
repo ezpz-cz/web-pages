@@ -24,6 +24,9 @@ try {
         ftp_pasv($conn_id, true);
         if(!($files = ftp_nlist($conn_id, $server["path"]))) throw new Exception("Couldn't get directory from " . $server["host"] . ":" . $server["port"]);
 
+        //echo $filePath;
+        //print_r($files);
+
         if (!in_array($filePath, $files))
         {
             $filePath = $filePath . ".zip";
