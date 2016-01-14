@@ -37,24 +37,28 @@
 <!-- INCLUDEJS utils-chatlog/list_chatlog.js -->
 
 <!-- PHP -->
-    include("ext/phpbb/pages/styles/pbtech/template/scripts-generic/servers.php");
-    include("ext/phpbb/pages/styles/pbtech/template/scripts-generic/checkAdmin.php");
+    include_once("ext/phpbb/pages/styles/pbtech/template/scripts-generic/servers.php");
+<!-- ENDPHP -->
 
-    session_start();
-    global $user;
-    $username = $user->data['username'];
-    $_SESSION['ezpz_username'] = $username;
+<!-- IF S_GROUP_10 or S_GROUP_14 or S_GROUP_8 -->
+    <!-- PHP -->
+        include_once("ext/phpbb/pages/styles/pbtech/template/scripts-generic/checkAdmin.php");
+        session_start();
+        global $user;
+        $username = $user->data['username'];
+        $_SESSION['ezpz_username'] = $username;
 
-    if (checkAdminByUsername($username))
-    {
+        if (checkAdminByUsername($username))
+        {
         $_SESSION['ezpz_sb_admin_id'] = getAdminIdByUsername($username);
         $_SESSION['ezpz_sb_admin'] = "1";
-    }
-    else
-    {
+        }
+        else
+        {
         $_SESSION['ezpz_sb_admin'] = "0";
-    }
-<!-- ENDPHP -->
+        }
+    <!-- ENDPHP -->
+<!-- ENDIF -->
 
 <div class="panel">
     <div class="inner">
@@ -84,8 +88,11 @@
                     <!-- ELSE -->
                         <option class="option-server" serverid="-1">ALL</option>
                     <!-- ENDIF -->
-                    <!-- PHP --> 
-                        foreach (GetServers() as $id => $row){ echo '<option class="option-server" serverid='.$row["server_id"].'>'.$row["name"].'</option>'; }
+                    <!-- PHP -->
+                        foreach (GetServers() as $id => $row)
+                        {
+                            echo '<option class="option-server" serverid='.$row["server_id"].'>' . $row["name"] . '</option>';
+                        }
                     <!-- ENDPHP -->
                 </select>
             </div>
@@ -154,6 +161,12 @@
             <!-- ELSE -->
                 <langinfo class="lang" value="en" style="display: hidden;"></langinfo>
             <!-- ENDIF -->
+        </div>
+
+        <!--<hr style="color: black; border-color: black;" />-->
+
+        <div id="div-credit" style="text-align: right; margin-top: 10px;">
+            created by <a href="http://ezpz.cz/memberlist.php?mode=viewprofile&u=158224">gorgitko</a> (<a href="http://steamcommunity.com/id/panhouba/">Steam profile</a>)
         </div>
 
         <!-- EVENT pages_after_page_content -->
