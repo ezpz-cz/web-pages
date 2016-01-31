@@ -94,3 +94,7 @@ table {
 fieldset {
     border-width: 1px;
 }
+
+/*#div-table {
+    vertical-align: bottom !important;
+}*/
